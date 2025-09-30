@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Seni Daha Yakından Tanımak İstiyorum</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdf6f8;
+      color: #333;
+      padding: 30px;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      color: #d16d91;
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      height: 70px;
+      resize: vertical;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #d16d91;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #b8597d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Seni Daha Yakından Tanımak İstiyorum 💌</h1>
+  <form id="form">
+    <label>1. Hangi tür film/dizilerden hoşlanırsın?</label>
+    <textarea name="q1" required></textarea>
+
+    <label>2. Hangi tarz kitapları okumayı seversin?</label>
+    <textarea name="q2" required></textarea>
+
+    <label>3. Hangi sosyal aktiviteler seni daha çok mutlu eder?</label>
+    <textarea name="q3" required></textarea>
+
+    <label>4. Hangi tarz müziklerden hoşlanırsın?</label>
+    <textarea name="q4" required></textarea>
+
+    <label>5. Kendinde değiştirmek istediğin bir özellik varsa bu nedir?</label>
+    <textarea name="q5" required></textarea>
+
+    <label>6. Kendinde güçlü bulduğun bir özellik varsa bu nedir?</label>
+    <textarea name="q6" required></textarea>
+
+    <label>7. Hangi çiçeklerden hoşlanırsın?</label>
+    <textarea name="q7" required></textarea>
+
+    <button type="submit">Gönder 💌</button>
+  </form>
+
+  <!-- EmailJS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("PGFlNf-4VS3qP5Mhp"); // Public Key
+    })();
+
+    document.getElementById('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm('service_gmvfz98', 'template_4qilvuz', this)
+        .then(function() {
+          alert('Cevapların başarıyla gönderildi. Teşekkür ederim! 💖');
+          document.getElementById('form').reset();
+        }, function(error) {
+          alert('Bir hata oluştu: ' + JSON.stringify(error));
+        });
+    });
+  </script>
+</body>
+</html>
